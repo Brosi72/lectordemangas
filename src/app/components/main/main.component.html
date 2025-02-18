@@ -1,0 +1,40 @@
+<div class="top-mangas-container">
+  <h1>Top Mangas</h1>
+  <div class="manga-list">
+    <!-- Fila 1 de mangas -->
+    <div class="top-mangas-container">
+      <div class="manga-row">
+        <div *ngFor="let manga of topMangas.slice(0, 10)" class="manga-item" (click)="openModal(manga)">
+          <img [src]="manga.images.jpg.image_url" alt="{{ manga.title }}" class="manga-image" />
+          <div class="manga-info">
+            <h2>{{ manga.title }}</h2>
+            <p><strong>Score:</strong> {{ manga.score }}</p>
+            <p><strong>Chapters:</strong> {{ manga.chapters }}</p>
+            <p><strong>Status:</strong> <span [ngClass]="getStatusClass(manga.status)">{{ manga.status }}</span></p>
+            <p><strong>Rank:</strong> #{{ manga.rank }}</p>
+            <a [href]="manga.url" target="_blank">See more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div *ngIf="selectedManga" class="modal" (click)="closeModal()">
+<div class="modal-content" (click)="$event.stopPropagation()">
+  <span class="close-btn" (click)="closeModal()">&#10006;</span>
+  <div class="modal-body">
+    <img [src]="selectedManga.images.jpg.large_image_url" alt="{{ selectedManga.title }}" class="modal-image" />
+    <div class="modal-info">
+      <h2>{{ selectedManga.title }}</h2>
+      <p><strong>Score:</strong> {{ selectedManga.score }}</p>
+      <p><strong>Chapters:</strong> {{ selectedManga.chapters }}</p>
+      <p><strong>Status:</strong> <span [ngClass]="getStatusClass(selectedManga.status)">{{ selectedManga.status }}</span></p>
+      <p><strong>Rank:</strong> #{{ selectedManga.rank }}</p>
+      <p><strong>Synopsis:</strong> {{ selectedManga.synopsis }}</p>
+      <a [href]="selectedManga.url" target="_blank">See more</a>
+    </div>
+  </div>
+</div>
+</div>

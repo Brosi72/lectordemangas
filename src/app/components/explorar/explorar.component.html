@@ -1,0 +1,24 @@
+<div class="container mt-5">
+  <h2>Explorar Manga</h2>
+
+  <!-- Mensaje de carga o error si no hay géneros -->
+  <div *ngIf="!genres.length">Cargando géneros...</div>
+
+  <!-- Itera sobre los géneros -->
+  <div *ngFor="let genre of genres">
+    <h3>{{ genre.name }}</h3> <!-- Muestra el nombre del género -->
+
+    <p><a [routerLink]="['/mangas', genre.id]">Ver todos los mangas de este género</a></p> <!-- Enlace al género -->
+
+    <!-- Lista de los 5 mangas más populares del género -->
+    <div *ngIf="genre.mangas.length > 0">
+      <ul>
+        <li *ngFor="let manga of genre.mangas.slice(0, 5)">
+          <h4>{{ manga.title }}</h4>
+          <p>{{ manga.description }}</p>
+          <img [src]="manga.imageUrl" alt="{{ manga.title }}" class="img-thumbnail" style="width: 100px; height: 150px;">
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
