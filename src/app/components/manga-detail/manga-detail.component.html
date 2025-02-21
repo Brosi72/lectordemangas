@@ -1,1 +1,40 @@
-<p>manga-detail works!</p>
+<div *ngIf="isLoading" class="manga-detail-loading">
+  <p>Loading manga details...</p>
+</div>
+
+<div *ngIf="errorMessage" class="manga-detail-error">
+  <p>{{ errorMessage }}</p>
+</div>
+
+<article *ngIf="manga" class="manga-detail-container">
+  <!-- Header -->
+  <header class="manga-detail-header">
+    <img [src]="manga.images.jpg.large_image_url" alt="Cover of {{ manga.title }}" />
+    <div>
+      <h1>{{ manga.title }}</h1>
+      <p><strong>English Title:</strong> {{ manga.title_english }}</p>
+      <p><strong>Japanese Title:</strong> {{ manga.title_japanese }}</p>
+      <p><strong>Chapters:</strong> {{ manga.chapters }}</p>
+      <p><strong>Volumes:</strong> {{ manga.volumes }}</p>
+      <p><strong>Status:</strong> {{ manga.status }}</p>
+    </div>
+  </header>
+
+  <!-- Info Section -->
+  <section class="manga-detail-info">
+    <dl>
+      <dt>Score:</dt>
+      <dd>{{ manga.score }}</dd>
+      <dt>Members:</dt>
+      <dd>{{ manga.members }}</dd>
+      <dt>Favorites:</dt>
+      <dd>{{ manga.favorites }}</dd>
+    </dl>
+  </section>
+
+  <!-- Synopsis Section -->
+  <section class="manga-detail-synopsis">
+    <h2>Synopsis</h2>
+    <p>{{ manga.synopsis }}</p>
+  </section>
+</article>

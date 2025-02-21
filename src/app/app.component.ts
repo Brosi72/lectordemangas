@@ -10,7 +10,7 @@ import { FooterComponent } from './components/footer/footer.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  imports: [NgIf, NgFor,RouterOutlet,NavbarComponent,FooterComponent,],
+  imports: [NgIf, NgFor,RouterOutlet,FooterComponent,NavbarComponent],
   standalone: true,
   providers: [MangaService],
   styleUrls: ['./app.component.css']

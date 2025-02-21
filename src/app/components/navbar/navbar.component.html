@@ -1,48 +1,43 @@
-<!-- navbar.component.html -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
     <a class="navbar-brand" href="#">
       <img src="/manga-logo.png" alt="Manga World Logo">
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <!-- Menú Desplegable -->
         <li class="nav-item dropdown" (click)="toggleDropdown($event)">
           <a class="nav-link dropdown-toggle" href="explorar" id="navbarDropdown" role="button">
-            Categorías
+            Explorar
           </a>
-          <!-- Cambié la lógica para controlar el dropdown -->
-          <ul *ngIf="dropdownOpen" class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Shonen</a></li>
-            <li><a class="dropdown-item" href="#">Shojo</a></li>
-            <li><a class="dropdown-item" href="#">Seinen</a></li>
-            <li><a class="dropdown-item" href="#">Josei</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Ver todas las categorías</a></li>
-          </ul>
-        </li>
-        <!-- Otros enlaces del navbar -->
-        <li class="nav-item">
-          <a class="nav-link" href="#">Populares</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Novedades</a>
+          <a class="nav-link" href="random">Random</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Foro</a>
+          <a class="nav-link" href="mi-lista">Mi Lista</a>
         </li>
       </ul>
 
-      <!-- Formulario de búsqueda -->
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Buscar mangas..." aria-label="Buscar">
-        <button class="btn btn-outline-light" type="submit">Buscar</button>
-      </form>
+     <!-- Formulario de búsqueda -->
+     <div class="search-container position-relative d-flex">
+      <input
+        class="form-control me-2"
+        type="search"
+        placeholder="Buscar mangas..."
+        [(ngModel)]="searchQuery"
+        (input)="onSearch()"
+        aria-label="Buscar"
+      />
+      <button class="btn btn-outline-light" type="submit">Buscar</button>
 
+      <!-- Sugerencias de búsqueda -->
+      <div *ngIf="searchResults.length > 0" class="search-suggestions position-absolute w-100">
+        <div *ngFor="let result of searchResults" class="suggestion-item" (click)="selectManga(result)">
+          <img [src]="result.images.jpg.small_image_url" alt="{{ result.title }}" class="suggestion-image"/>
+          <span>{{ result.title }}</span>
+        </div>
+      </div>
+    </div>
       <!-- Botones de usuario -->
       <div class="d-flex ms-3">
         <a *ngIf="!isLoggedIn" href="login" class="btn btn-outline-light me-2">Iniciar Sesión</a>

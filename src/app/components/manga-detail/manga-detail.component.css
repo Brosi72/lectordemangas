@@ -1,0 +1,176 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f7fb; /* Light background for a clean, modern look */
+    color: #333;
+    line-height: 1.6;
+    padding: 0 20px; /* Adds padding to prevent content from touching the edges */
+}
+
+h1, h2, h3, p {
+    margin: 0;
+}
+
+.manga-detail-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 16px; /* Rounded corners for a soft, modern look */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); /* Subtle, deep shadow for a floating effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.manga-detail-container:hover {
+    transform: translateY(-5px); /* Subtle hover effect to make it feel interactive */
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+/* Header Section */
+.manga-detail-header {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.manga-detail-header img {
+    width: 200px; /* Larger image size for a more impactful visual */
+    height: 300px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.manga-detail-header img:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.manga-detail-header div {
+    max-width: 600px;
+}
+
+.manga-detail-header h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.manga-detail-header p {
+    font-size: 1.1rem;
+    color: #7f8c8d;
+    margin-bottom: 8px;
+}
+
+/* Info Section */
+.manga-detail-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.manga-detail-info dt {
+    font-weight: 600;
+    color: #34495e;
+}
+
+.manga-detail-info dd {
+    color: #7f8c8d;
+    margin: 0;
+}
+
+.manga-detail-info dl {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Synopsis Section */
+.manga-detail-synopsis {
+    margin-bottom: 30px;
+}
+
+.manga-detail-synopsis h2 {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.manga-detail-synopsis p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #7f8c8d;
+    margin-top: 15px;
+}
+
+/* Loading State */
+.manga-detail-loading {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 1.2rem;
+    color: #3498db;
+}
+
+.manga-detail-loading p {
+    animation: fadeIn 1s ease-in-out infinite alternate;
+}
+
+/* Error State */
+.manga-detail-error {
+    text-align: center;
+    margin-top: 50px;
+    color: #e74c3c;
+    font-size: 1.2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .manga-detail-header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .manga-detail-header img {
+        width: 100%;
+        height: auto;
+        max-width: 250px;
+        margin-bottom: 20px;
+    }
+
+    .manga-detail-header h1 {
+        font-size: 2rem;
+    }
+
+    .manga-detail-info {
+        grid-template-columns: 1fr; /* Stack info in a single column on smaller screens */
+    }
+
+    .manga-detail-info dt,
+    .manga-detail-info dd {
+        font-size: 1rem;
+    }
+
+    .manga-detail-synopsis h2 {
+        font-size: 1.5rem;
+    }
+
+    .manga-detail-synopsis p {
+        font-size: 1rem;
+    }
+}
+
+/* Animation for Loading */
+@keyframes fadeIn {
+    0% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+    

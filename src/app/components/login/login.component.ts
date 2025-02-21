@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [CommonModule, FormsModule],
   template: `
+  
     <div class="login-container">
       <div class="login-box">
         <h2>Iniciar sesión</h2>
@@ -54,7 +55,6 @@ export class LoginComponent {
     initializeApp(environment);
   }
 
-  // Lógica para el login
   // Lógica para el login
 async login() {
   const db = getFirestore();

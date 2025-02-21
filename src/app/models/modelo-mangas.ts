@@ -1,8 +1,9 @@
 export interface ModeloMangas {
-    data: Data
+    
+    data: Manga[]
   }
   
-  export interface Data {
+  export interface Manga {
     mal_id: number
     url: string
     images: Images
@@ -34,8 +35,10 @@ export interface ModeloMangas {
     demographics: Demographic[]
     relations: Relation[]
     external: External[]
+    
   }
-  
+ 
+
   export interface Images {
     jpg: Jpg
     webp: Webp
@@ -140,17 +143,6 @@ export interface ModeloMangas {
     name: string
     url: string
   }
-  export interface Manga {
-    id: string;
-    title: string;
-    description: string;
-    imageUrl: string;
-    genreId: string;  // Este campo es importante para asociar mangas a un género
-  }
-  export interface Genres {
-    id: string;
-    name: string;
-    url: string;
-  }
-    
+  
+ 
   
