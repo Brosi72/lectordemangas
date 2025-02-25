@@ -1,110 +1,102 @@
-/* manga-random.component.css */
+/* Asegura que el body y html ocupen toda la altura */
+html, body {
+  height: 100%; /* Ocupa toda la altura de la ventana */
+  margin: 0; /* Elimina márgenes por defecto */
+}
 
-/* Estilo general de la página */
+/* Estilo general del contenedor */
 .container {
-    max-width: 900px;
-    margin-top: 50px;
-    padding: 20px;
-  }
-  
-  /* Botón de obtener manga aleatorio */
-  button {
-    margin-bottom: 20px;
-    background-color: #007bff;
-    color: white;
-    font-size: 1.1rem;
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: none;
-    transition: background-color 0.3s ease;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-    cursor: pointer;
-  }
-  
-  /* Tarjeta de manga */
+  display: flex;
+  flex-direction: column; /* Alinea los elementos en columna */
+  justify-content: flex-start; /* Cambia de 'center' a 'flex-start' para moverlo más arriba */
+  align-items: center; /* Centrado horizontal */
+  height: 100vh; /* 100% de la altura de la ventana */
+  padding: 20px;
+  text-align: center; /* Asegura que el texto esté centrado */
+  margin-top: 10%; /* Ajusta el margen superior para mover el contenido más hacia arriba */
+}
+
+/* Estilos del botón */
+button {
+  margin-top: 20px;
+  background-color: #007bff;
+  color: white;
+  font-size: 1.1rem;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+  cursor: pointer;
+}
+
+/* Estilos de la tarjeta */
+.card {
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 720px; /* Aumentamos el ancho de la tarjeta en un 20% (de 600px a 720px) */
+}
+
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Imagen de la tarjeta */
+.card-img {
+  object-fit: cover;
+  width: 100%;
+  height: 300px;
+}
+
+/* Cuerpo de la tarjeta */
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.card-text {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+/* Estilos de la alerta de error */
+.alert {
+  font-size: 1.1rem;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 768px) {
   .card {
-    border: none;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    overflow: hidden;
-    margin-top: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+      max-width: 100%; /* La tarjeta ocupa todo el ancho en pantallas pequeñas */
   }
-  
-  .card:hover {
-    transform: scale(1.02);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Imagen del manga dentro de la tarjeta */
-  .card-img {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    object-fit: cover;
-    width: 100%;
-    height: 300px;
-  }
-  
-  /* Cuerpo de la tarjeta */
   .card-body {
-    padding: 20px;
-  }
-  
-  .card-title {
-    font-size: 1.8rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #333;
-  }
-  
-  .card-text {
-    font-size: 1.1rem;
-    color: #555;
-    margin-bottom: 10px;
-  }
-  
-  /* Sinopsis y detalles */
-  .card-text strong {
-    font-weight: bold;
-    color: #007bff;
-  }
-  
-  img {
-    max-width: 100%;
-    border-radius: 8px;
-  }
-  
-  /* Estilos de la alerta de error */
-  .alert {
-    margin-top: 20px;
-    font-size: 1.1rem;
-    padding: 15px;
-    border-radius: 8px;
-    background-color: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
-  }
-  
-  /* Mejora para pantallas más pequeñas */
-  @media (max-width: 768px) {
-    .card {
-      margin-top: 15px;
-    }
-  
-    .card-body {
       padding: 15px;
-    }
-  
-    .card-title {
+  }
+  .card-title {
       font-size: 1.5rem;
-    }
-  
-    button {
+  }
+  button {
       font-size: 1rem;
       padding: 8px 16px;
-    }
   }
-  
+}

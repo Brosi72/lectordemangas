@@ -9,7 +9,7 @@ import { FormsModule, NgModel } from '@angular/forms';
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
-  imports:[CommonModule,NgIf,NgFor,RouterOutlet,FormsModule],
+  imports:[CommonModule,NgIf,NgFor,FormsModule],
   standalone: true,
   providers: [MangaService,],
 })

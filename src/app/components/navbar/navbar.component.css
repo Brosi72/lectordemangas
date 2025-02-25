@@ -1,124 +1,127 @@
+/* Estilos generales */
 header {
-    min-height: 50px;
-    background: lightcyan;
-  }
-    .navbar-brand img {
-        height: 100px;
-       
-    }
+  min-height: 50px;
+  background: lightcyan;
+}
 
-    .hero-section {
-        height: 500px;
-        background-color: #f0f0f0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .footer {
-        background-color: #222;
-        color: #fff;
-        padding: 40px 0;
-    }
-    
-    .footer-links {
-        list-style: none;
-        padding-left: 0;
-    }
-    
-    .footer-links li {
-        margin-bottom: 10px;
-    }
-    
-    .footer-links a {
-        color: #aaa;
-        text-decoration: none;
-        transition: color 0.3s;
-    }
-    
-    .footer-links a:hover {
-        color: #fff;
-    }
-    
-    .social-icons a {
-        color: #fff;
-        font-size: 20px;
-        margin-right: 15px;
-        transition: transform 0.3s;
-    }
-    
-    .social-icons a:hover {
-        transform: translateY(-3px);
-    }
-    
-    .footer-bottom {
-        border-top: 1px solid #444;
-        padding-top: 20px;
-        margin-top: 20px;
-    }
-/* navbar.component.css */
+.navbar-brand img {
+  height: 100px;
+}
 
+.hero-section {
+  height: 500px;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer {
+  background-color: #222;
+  color: #fff;
+  padding: 40px 0;
+}
+
+/* Estilos de la barra de navegación */
+.navbar .dropdown-menu {
+  min-width: 200px;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.navbar .dropdown-menu.show {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
 
 .navbar .dropdown-menu {
-    min-width: 200px; /* Ajusta el tamaño del dropdown */
-    transition: opacity 0.3s ease, visibility 0.3s ease; /* Transición más suave */
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Animación para elementos desvanecidos */
+.fade-in {
+  animation: fadeIn 1.5s ease-out;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Sugerencias de búsqueda */
+.search-container {
+  position: relative;
+}
+
+.search-suggestions {
+  background-color: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 1000;
+  margin-top: 40px;
+}
+
+.suggestion-item {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.suggestion-item:hover {
+  background-color: #f5f5f5;
+}
+
+.suggestion-image {
+  width: 40px;
+  height: 60px;
+  margin-right: 10px;
+  object-fit: cover;
+}
+
+.suggestion-item span {
+  font-size: 14px;
+  color: #333;
+}
+
+/* Estilo para dispositivos de escritorio */
+@media (min-width: 992px) {
+  /* Mover la barra de búsqueda hacia la derecha */
+  .navbar .search-container {
+    margin-left: auto; /* Esto mueve la barra de búsqueda hacia la derecha */
+    margin-right: 30px; /* Espacio a la derecha */
   }
-  
-  .navbar .dropdown-menu.show {
-    display: block;
-    opacity: 1;  /* Se muestra con opacidad */
-    visibility: visible; /* Asegura que esté visible */
+
+  /* Aumentar el ancho de los botones de login y registro */
+  .navbar .d-flex.ms-3 .btn {
+    width: 110%;   /* Aumenta el ancho de los botones en un 10% */
+    font-size: 14px;   /* Mantén el tamaño de la fuente en 14px */
+    padding: 8px 16px; /* Ajuste del padding */
   }
+  /* Evitar que el texto del botón se divida en dos líneas */
+.navbar .d-flex.ms-3 .btn {
+  white-space: nowrap;  /* Esto evita que el texto se divida en varias líneas */
+}
+
   
-  .navbar .dropdown-menu {
-    display: none;
-    opacity: 0;
-    visibility: hidden;  /* Esconde el dropdown cuando no está visible */
+  /* Asegurar que los botones no se superpongan con la barra de búsqueda */
+  .navbar .d-flex.ms-3 {
+    display: flex;
+    justify-content: flex-end;
   }
-  
-    .fade-in {
-      animation: fadeIn 1.5s ease-out;
-    }
-    @keyframes fadeIn {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
-    }
-    .search-container {
-      position: relative;  /* Necesario para posicionar la lista de sugerencias */
-    }
-    
-    .search-suggestions {
-      background-color: white;
-      border: 1px solid #ddd;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      max-height: 300px;  /* Limitar la altura de las sugerencias */
-      overflow-y: auto;   /* Mostrar barra de desplazamiento si hay demasiadas sugerencias */
-      z-index: 1000;
-      margin-top: 40px;
-    }
-    
-    .suggestion-item {
-      display: flex;
-      align-items: center;
-      padding: 8px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    
-    .suggestion-item:hover {
-      background-color: #f5f5f5;
-    }
-    
-    .suggestion-image {
-      width: 40px;
-      height: 60px;
-      margin-right: 10px;
-      object-fit: cover;
-    }
-    
-    .suggestion-item span {
-      font-size: 14px;
-      color: #333;
-    }
-    
-  
+  /* Estilo adicional para los botones de Login, Register y Logout */
+.navbar .d-flex.ms-3 .btn {
+  padding-left: 30px;  /* Añadir 20px de espacio al lado izquierdo */
+  padding-right: 30px; /* Añadir 20px de espacio al lado derecho */
+}
+
+  /* Ajuste del tamaño del logo en pantallas grandes */
+  .navbar-brand img {
+    height: 80px;  /* Ajuste del tamaño del logo en pantallas grandes */
+  }
+}

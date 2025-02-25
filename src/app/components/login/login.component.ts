@@ -52,7 +52,7 @@ export class LoginComponent {
 
   constructor() {
     // Inicializa Firebase
-    initializeApp(environment);
+    initializeApp(environment.firebase);
   }
 
   // Lógica para el login

@@ -173,6 +173,48 @@ body {
   }
 }
 
+/* Modal - Estilos */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Contenido del modal */
+.modal-content {
+  background-color: #fff;
+  width: 80%;
+  max-width: 1000px;
+  height: 80%;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  animation: scaleIn 0.4s ease-out;
+}
+
+/* Animación de escala para el modal */
+@keyframes scaleIn {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
 /* Cuerpo del modal */
 .modal-body {
   display: flex;
@@ -240,5 +282,4 @@ body {
   }
   to {
     opacity: 1;
-  }
-}
+  }}
